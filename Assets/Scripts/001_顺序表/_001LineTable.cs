@@ -76,8 +76,7 @@ public class SqeList<T> : IListDS<T>
     {
         if (IsFull())
         {
-            Debug.LogError("当前顺序表已存满！");
-            return;
+            throw new System.Exception("当前顺序表已存满！");           
         }
         data[last + 1] = item;
         last++;
@@ -89,13 +88,11 @@ public class SqeList<T> : IListDS<T>
     {
         if (index < 0 || index > last)
         {
-            Debug.LogError("插入index不合法！");
-            return;
+            throw new System.Exception("插入index不合法！");
         }
         if (IsFull())
         {
-            Debug.LogError("当前顺序表已存满！");
-            return;
+            throw new System.Exception("当前顺序表已存满！");
         }
 
         for (int i = last; i >= index; i--)
@@ -111,8 +108,8 @@ public class SqeList<T> : IListDS<T>
     {
         if (index < 0 || index > last)
         {
-            Debug.LogError("删除位置index不合法！");
-            return default(T);
+            throw new System.Exception("删除位置index不合法！");
+            
         }
         T temp = data[index];
         for (int i = index + 1; i <= last; i++)
@@ -138,8 +135,7 @@ public class SqeList<T> : IListDS<T>
         }
         else
         {
-            Debug.LogError("索引不存在");
-            return default(T);
+            throw new System.Exception("索引不存在");
         }
     }
 

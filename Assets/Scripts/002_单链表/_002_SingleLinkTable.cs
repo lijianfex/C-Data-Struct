@@ -125,16 +125,14 @@ public class LinkList<T>
     {
         if (index < 0 || index > GetLength()) //可以插到尾部
         {
-            Debug.LogError("index不合法！");
-            return;
+            throw new System.Exception("插入index不合法！");
         }
 
         Node<T> newNode = new Node<T>(item);
         if(index==0)//头插入
         {
-            Node<T> temp = head.Next;
-            head.Next = newNode;
-            newNode.Next = temp;
+            newNode.Next = head.Next;
+            head.Next = newNode;            
         }
         else
         {
@@ -158,8 +156,7 @@ public class LinkList<T>
         T data = default(T);
         if (index < 0 || index > GetLength()-1)
         {
-            Debug.LogError("index不合法！");
-            return data;
+            throw new System.Exception("删除位置index不合法！");
         }
 
         Node<T> temp = head;
@@ -180,11 +177,10 @@ public class LinkList<T>
     {
         get
         {
-            T data = default(T);
+            
             if (index < 0 || index > GetLength() - 1)
             {
-                Debug.LogError("index不合法！");
-                return data;
+                throw new System.Exception("索引不存在");
             }
             Node<T> temp = head;
             for(int i=0;i<=index;i++)

@@ -59,8 +59,7 @@ public class SeqStack<T>
     {
         if(IsEmpty())
         {
-            Debug.LogError("栈空，无法出栈！");
-            return default(T);
+            throw new System.Exception("栈空，无法出栈！");
         }
         return data[top--];
     }
@@ -70,8 +69,7 @@ public class SeqStack<T>
     {
         if (IsEmpty())
         {
-            Debug.LogError("栈空，无法访问栈顶！");
-            return default(T);
+            throw new System.Exception("栈空，无法访问栈顶！");           
         }
         return data[top];
     }
