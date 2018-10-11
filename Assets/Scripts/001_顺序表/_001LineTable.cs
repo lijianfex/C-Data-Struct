@@ -8,12 +8,12 @@ using UnityEngine;
 /// <typeparam name="T"></typeparam>
 public interface IListDS<T>
 {
-    int MaxSize();
+    
 
     bool IsEmpty();
-    bool IsFull();
+   
 
-    void Add(T item);
+    //void Add(T item);
     void Insert(T item, int index);
     T Delete(int index);
 
@@ -200,7 +200,7 @@ public class _001LineTable : MonoBehaviour
         Debug.Log("顺序表是否为空：" + sqeList.IsEmpty());
 
         //判满操作
-        Debug.Log("顺序表是否已满：" + sqeList.IsEmpty());
+        Debug.Log("顺序表是否已满：" + sqeList.IsFull());
 
         //添加操作
         Debug.Log("添加操作--------------添加'123','456','789'");
