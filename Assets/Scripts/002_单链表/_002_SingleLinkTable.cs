@@ -43,8 +43,8 @@ public class Node<T>
 
     public Node()
     {
-        data = default(T);
-        next = null;
+        this.data = default(T);
+        this.next = null;
     }
 
     public Node(T _data, Node<T> _next)
@@ -62,6 +62,7 @@ public class Node<T>
     public Node(Node<T> _next)
     {
         this.next = _next;
+        this.data = default(T);
     }
        
 }
@@ -299,11 +300,12 @@ public class LinkList<T>
 public class _002_SingleLinkTable : MonoBehaviour {
 
 
-    //初始化顺序表
+   
     LinkList<string> sqeList;
 
     void Start()
-    {
+    {   
+        //初始化顺序表
         sqeList = new LinkList<string>();
 
         ////判空操作
