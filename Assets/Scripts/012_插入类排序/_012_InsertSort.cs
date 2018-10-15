@@ -62,7 +62,7 @@ public class InsertSort
 
             int j = i - 1; //前一个数的索性值
 
-            while (j >= 0 && insertNum < a[j])
+            while (j >= 0 && insertNum < a[j])  //(insertNum >a[j]:降序）
             {
                 a[j + 1] = a[j]; //把大的向后移动
                 j--;
@@ -130,7 +130,7 @@ public class InsertSort
                 {
                     int k = j - len;//k为有序序列最后一个的位置
                     int temp = a[j];
-                    while (k >= 0 && temp < a[k])
+                    while (k >= 0 && temp < a[k])  //(temp >a[k]:降序)
                     {
                         a[k + len] = a[k];
                         k -= len;
@@ -158,7 +158,7 @@ public class _012_InsertSort : MonoBehaviour
         InsertSort.StraightInsetSort(a); //直接插入排序
 
         Debug.Log("------------折半插入排序----------------");
-        InsertSort.BInsertSort(a); //折半插入排序
+        //InsertSort.BInsertSort(a); //折半插入排序
 
         Debug.Log("------------希尔排序----------------");
         InsertSort.ShellSort(a);//希尔排序
