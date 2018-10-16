@@ -19,7 +19,7 @@ public static class Utilit
         {
             str += a[i].ToString() + " ";
         }
-        Debug.Log("第" + t + "趟排序结果： [" + str +" ]");
+        Debug.Log("第" + t + "趟排序结果： [ " + str +" ]");
     }
 
     /// <summary>

@@ -121,7 +121,7 @@ public class SelectSort
     }
 
     /// <summary>
-    /// 选择排序：堆排序
+    /// 3、选择排序：堆排序
     /// </summary>
     /// <param name="List">数组</param>    
     public static void HeapSort(int[] List)
@@ -155,7 +155,7 @@ public class _013_SelectSort : MonoBehaviour
 
         int[] b = (int[])a.Clone();
 
-        Debug.Log("-------------正确简单选择排序--------------");
+        Debug.Log("---------------简单选择排序--------------");
         SelectSort.SampleSelectSort(a);
 
         //Debug.Log("-------------错误简单选择排序--------------");
