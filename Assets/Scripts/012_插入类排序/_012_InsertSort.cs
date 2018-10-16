@@ -19,7 +19,7 @@ public static class Utilit
         {
             str += a[i].ToString() + " ";
         }
-        Debug.Log("第" + t + "趟排序结果：" + str);
+        Debug.Log("第" + t + "趟排序结果： [" + str +" ]");
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ public static class Utilit
             a[i] = Random.Range(0, max);
             str += a[i].ToString() + " ";
         }
-        Debug.Log("随机生成的数组：" + str);
+        Debug.Log("随机生成的数组：[ " + str+" ]");
         return a;
     }
 }
