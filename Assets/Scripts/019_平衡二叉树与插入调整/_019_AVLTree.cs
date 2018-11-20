@@ -76,7 +76,7 @@ public class AVLTree
 
     
 
-    //得到子树的高度
+    //得到树的高度
     private static int GetHeigth(TreeNode<int> T)
     {
         return BinTree<int>.LayerOderBinTreeHigh(T); 
