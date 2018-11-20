@@ -16,7 +16,7 @@ public class AVLTree
         return AVL;
     }
 
-    //插入节点
+    //AVL插入节点
     public static TreeNode<int> AVL_Insert(int data, TreeNode<int> T)
     {
         if (T == null)
@@ -58,7 +58,7 @@ public class AVLTree
         return T;
     }
 
-    //删除节点
+    //AVL删除节点
     public static TreeNode<int> AVL_Delete(int data, TreeNode<int> T)
     {
         T= BinSerachTree.Delete(data, T);
