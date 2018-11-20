@@ -46,7 +46,11 @@ public class BinSerachTree
             {
                 BST = BST.Left;
             }
-            return BST;
+            else
+            {
+                return BST;
+            }           
+                 
         }
         return null;
     }
