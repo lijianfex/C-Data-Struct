@@ -168,16 +168,19 @@ public class SqeList<T> : IListDS<T>
     //显示所有的表元素值
     public void Display()
     {
+        string str = null;
         if (IsEmpty())
         {
             Debug.Log("表中没有元素");
             return;
         }
-        Debug.Log("表中的值：");
+        Debug.Log("顺序表中的值：");
         for (int i = 0; i <= last; i++)
         {
-            Debug.Log("index:"+i.ToString()+"   value:"+data[i]);
+            //Debug.Log("index:"+i.ToString()+"   value:"+data[i]);
+            str += data[i] + " , ";
         }
+        Debug.Log(str);
     }
 }
 

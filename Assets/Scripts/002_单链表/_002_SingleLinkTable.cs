@@ -80,6 +80,15 @@ public class LinkList<T>
         head = new Node<T>();
     }
 
+    public Node<T> Head
+    {
+        get
+        {
+            return head;
+        }
+    }
+    
+
     
 
     //判空
@@ -265,12 +274,13 @@ public class LinkList<T>
     //显示表元素
     public void Display()
     {
+        string str = null;
         if (IsEmpty())
         {
             Debug.Log("表空");
             return;
         }
-        Debug.Log("表中的值：");
+        Debug.Log("单链表中的值：");
 
         int index = 0;
         Node<T> temp = head;
@@ -279,7 +289,8 @@ public class LinkList<T>
             if (temp.Next != null)
             {
                 temp = temp.Next;
-                Debug.Log("index:" + index.ToString() + "   value:" +temp.Data);
+                //Debug.Log("index:" + index.ToString() + "   value:" +temp.Data);
+                str += temp.Data + "--->";
                 index++;
             }
             else
@@ -287,6 +298,7 @@ public class LinkList<T>
                 break;
             }
         }
+        Debug.Log(str+"null");
     }
 
    
