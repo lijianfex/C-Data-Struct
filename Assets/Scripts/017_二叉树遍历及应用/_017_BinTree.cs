@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -98,6 +100,47 @@ public class BinTree<T>
         Debug.Log(output);
         output = string.Empty;
     }//显示遍历结果
+
+
+    /// <summary>
+    /// 创建二叉树 ；eg {3,1,#,2,#,#,4}
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public static TreeNode<int> StringToBinaryTree (string s)
+    {
+        string[] tokens = s.TrimEnd('}').TrimStart('{').Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+        if(tokens.Length==0)
+        {
+            return null;
+        }
+        TreeNode<int> rootNode;
+        rootNode = tokens[0] == "#" ? null : new TreeNode<int>(int.Parse(tokens[0]));
+
+        Queue<TreeNode<int>> q = new Queue<TreeNode<int>>();
+        q.Enqueue(rootNode);
+
+        int index = 1;
+        while(index<tokens.Length)
+        {
+            var t = q.Dequeue();
+            if(tokens[index]!="#")
+            {
+                t.Left = new TreeNode<int>(int.Parse(tokens[index]));
+                q.Enqueue(t.Left);
+            }
+            index++;
+
+            if (index < tokens.Length && tokens[index] != "#")
+            {
+                t.Right = new TreeNode<int>(int.Parse(tokens[index]));
+                q.Enqueue(t.Right);
+            }
+            index++;
+
+        }
+        return rootNode;
+    }
 
     //非递归：
 
@@ -441,28 +484,31 @@ public class _017_BinTree : MonoBehaviour
 
     TreeNode<int> root; //二叉树根节点
 
+    private string t = "{1,2,3,4,5,#,#,6,7}";
+
     //创建二叉树
     void CreatBinTree()
     {
-       
-        root = new TreeNode<int>(1);
-        TreeNode<int> t2 = new TreeNode<int>(2);
-        TreeNode<int> t3 = new TreeNode<int>(3);
-        TreeNode<int> t4 = new TreeNode<int>(4);
-        TreeNode<int> t5 = new TreeNode<int>(5);
-        TreeNode<int> t6 = new TreeNode<int>(6);
-        TreeNode<int> t7 = new TreeNode<int>(7);
 
-        root.SetLRChild(t2, t3);
-        t2.SetLRChild(t4, t5);
-        t4.SetLRChild(t6, t7);
+        //root = new TreeNode<int>(1);
+        //TreeNode<int> t2 = new TreeNode<int>(2);
+        //TreeNode<int> t3 = new TreeNode<int>(3);
+        //TreeNode<int> t4 = new TreeNode<int>(4);
+        //TreeNode<int> t5 = new TreeNode<int>(5);
+        //TreeNode<int> t6 = new TreeNode<int>(6);
+        //TreeNode<int> t7 = new TreeNode<int>(7);
+
+        //root.SetLRChild(t2, t3);
+        //t2.SetLRChild(t4, t5);
+        //t4.SetLRChild(t6, t7);
+        
     }
 
     void Start()
     {
-        CreatBinTree();//创建二叉树
+        root = BinTree<int>.StringToBinaryTree(t);//创建二叉树
 
-        
+
         Debug.Log("二叉树结构：" + "\n" + tree);
 
         //遍历：
